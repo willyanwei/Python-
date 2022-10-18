@@ -1,0 +1,1194 @@
+<20220823>
+	<随堂>
+	1. 课程总览
+	Python、大数据、AI
+
+	2. 课程设计思路解读
+	Python-数据分析、办公自动化（excel表格）、小游戏制作、爬虫
+
+	3. 学完本期课程，将获得什么
+	Python编程能力
+	大数据的原理、架构、数据仓库
+	人工智能、数据分析相关的一些算法： 分类、聚类、预测这些
+	办公自动化软件制作。。。
+	使用Python去实现人工智能
+
+
+	课程实操内容占70% 
+	（5% SQL（Select获取数据库、数据仓库的数据、我们才能进行下一步的Python数据分析） + 95% Python）
+
+	不完美的地方
+	excel： 功能相对而言单一一些、处理的数据量也不是特别大
+	PowerBI： 数据呈现（数据可视化），数据清洗（数据预处理）功能不是特别强大
+	SQL： 他是一门编程语言，功能相对单一， 我们重点掌握数据查询（select）
+	Tableau： 商用BI， 收费 ； 帆软BI
+
+	Python： 
+	语法简单，容易读，口语化
+	语言通用： 爬虫、web开发、数据分析、游戏
+	数据科学领域： Numpy（number）、Pandas、Matplotlib、Pyecharts、
+	人工智能领域： sk-learn
+	丰富的库函数(自带+第三方)： 定义好的规则供用户去调用——>   sum()  1+1=2   sum(1,1)=2 
+
+
+	Python： 解释型语言  一遍执行一遍转化、适合做运维自动化（linux shell脚本，Python py脚本（linux、windows、mac））
+
+	C++ Java ： 编译型语言 
+
+
+	开发环境：
+	Anaconda + Pycharm（VS Code）+ Jupyter Notebook
+
+	Anaconda（类比于服务器）
+	Python的环境安装，注意配置环境变量
+	下载地址： https://www.anaconda.com/
+
+
+	IDE（客户端）：
+	Pycharm： Python专门的IDE（推荐） 免费版本功能不够全，但是够用
+	https://www.jetbrains.com/pycharm/
+	注意配置说明
+
+	VS Code:  Python、C++ Java  免费，但是不够专一
+
+	Jupyter Notebook
+	</随堂>
+
+ 
+</20220823>
+
+<20220830>
+	<答疑>
+	教材获取： 
+	ZTE服务经理 朱建兵 
+	
+	严威：
+	13675196684@163.com
+	
+	开发环境：
+	Anaconda + Pycharm（VS Code）+ Jupyter Notebook
+	
+	</答疑>	
+	
+	<随堂>
+	1. Python的数据分析（收尾）
+	2. Python编程的概述（理论）
+	3. Python变量	
+	
+	Python简单易上手： 可以调用很多库函数，  
+	计算求和 sum()，但是在调用之前， import math
+	
+	
+	9月课程
+	Python的变量 
+	Python的逻辑与循环（if while for）
+	Python的容器（list 字典）
+	Python的函数 （def ）
+	Python的面向对象 （Class）
+	Python的库函数（Pandas Pyechart  sklearn ）
+	
+	10月-12月
+	Python 数据分析 核心 Pandas 数据分析最强的库
+	
+	计算机理论 （冯诺依曼）
+	服务器硬件->Linux操作系统->部署大数据软件  （hadoop）
+	
+	编程语言，建立在硬件、操作系统上 的软件
+	把人能懂的语言编译（翻译）计算机语言  
+	计算机返回人想要的结果
+	
+	1+1=？  ->  1+1=2
+	
+	编译型 解释型
+	JAVA .java(人能懂的语言)->.class（计算机能懂）	
+	Python  .py
+	
+	</随堂>
+
+</20220830>
+
+<20220906>
+	<随堂>
+	
+		<变量> 
+			<变量的基本类型>  不可变型有哪些， 可变型有哪些  
+			不可变型： 字符串、整数、浮点型、元祖 （无法对变量内的某个单一元素进行修改、增加、删除）
+			可变变量： 字典、列表 （可以对变量内的某个单一或多个元素进行修改、增加、删除）
+			</变量的基本类型>
+			
+			<变量命名的两大规则>
+				<约定俗称的规则：>
+				1. 大驼峰：类  class 
+				2. 小驼峰：函数  def xXx
+				3. 下划线：普通变量   
+				4. 不用0（零）和o（O）作为开头或结尾   				
+				</约定俗称的规则：>
+				
+				<强制性规则>
+				1. 变量开头不能是数字(其他位置均可以)
+				2. 标点符号不能出现在变量的任何位置（只有下划线 _一个例外）
+				3. 变量名中不能出现空格
+				4. 变量名不能为Python的保留关键字 如： class def print True等  
+				5. 特别注意：变量名大小写区分A和a是两个变量
+				</强制性规则>
+			</变量命名的两大规则>	
+			
+			<print灵活使用占位符>
+				<占位符%>
+					适合简单的且有循序的占位
+					格式化输出, 格式化占位符(坑位), %s 字符串 ; %d int 整数int ; %f  小数浮点数float
+					例子： 
+					name = 'zhongxing'
+					age = 28
+					print('我的名字是%s， 我的年龄是%d' %(name, age))
+					</占位符%>
+					
+				<占位符format>
+					适合一个量多次占位
+					print('我的名字是{0}，我的年龄是 {1}'.format(name, age))	
+					print('我的名字是{0}，我的年龄是 {1}，再说一遍我的名字是{0}'.format(name, age))				
+					</占位符format>
+					
+				<占位符 f {}>
+					适合有明确映射关系的占位
+					print(f'我的名字是{name}, 我的年龄是{age}')
+					</占位符 f {}>
+			</print灵活使用占位符>
+			
+		</变量>
+		
+		
+		<逻辑与循环> 
+			<逻辑运算>
+				逻辑运算又称布尔运算。布尔用数学方法研究逻辑问题，成功地建立了逻辑演算。
+				逻辑运算是计算机程序运行逻辑的最小元素
+			
+				判断真假
+				布尔的值只有两个 True 和 False （非真即假），在计算机中1代表真True,0代表假 False。所以0和1也可以转换为bool
+				
+				逻辑运算家族包括： 
+				1、比较运算： 等于, 不等于, 大于, 小于  
+				2、逻辑运算： and, or,  not
+				3、成员运算： in,  not in
+				4、身份运算： id()  is   a is b  
+				
+				逻辑运算结果返回True或者False， 常作为if逻辑 while for循环的判断语句						
+			</逻辑运算>
+			
+			<if逻辑>
+				1. 单个if： if  else  # else不是必须的，可以只有if没有else
+				2. if elif 组合： if elif elif ,,, esle
+				3. if 嵌套： if if else else 
+				注意！  代码块的缩进 
+			</if逻辑>
+			
+			
+			<for循环>
+				1. 使用场景：重复执行代码块
+				2. 最佳伴侣range()   range()的三个参数： range(开始，结束，步长)
+				注意！  代码的缩进 		
+
+					# for i in range(0,10):
+					# 	print(i)
+					# 	i += 1
+				
+			</for循环>
+			
+			<while循环>
+			
+			基于逻辑运算结果/条件决定是否继续循环：
+			while 语句执行的具体流程为：
+			首先判断条件表达式的值，其值为真（True）时，则执行代码块中的语句，
+			当执行完毕后，再回过头来重新判断条件表达式的值是否为真，若仍为真，则继续重新执行代码块...
+			如此循环，直到条件表达式的值为假（False），才终止循环。
+			注意！  代码的缩进 	
+			</while循环>				
+			
+			<循环控制语句>
+			break 终止当前全部循环
+			for i in 'Python':
+				if i == 'y':
+					break
+				print('Letter is:' , i)
+
+			continue 跳过当前循环体剩余代码，直接进入下一个循环  
+			for i in 'Python':
+				if i == 'y':
+					continue
+				print('Letter is:' , i)
+			
+			pass 是一个占位命令，保证代码完整性
+			for i in 'Python':
+				if i == 'y':
+					pass
+				print('Letter is:' , i)
+			</循环控制语句>	
+			
+		</逻辑与循环>		
+		
+	</随堂>
+</20220906>
+
+
+<20220913>  容器 - 数据存储
+	<列表>	
+	列表List是Python中最基本的数据结构,在数据分析中常用的一个数据结构。   
+	list = [a,b,c]
+	list[0] = a 
+	列表是一个有序的、可变的数据结构/类型
+	列表中的每个元素都分配一个数字 — 即当前数据的位置,或索引,第一个索引是0,第二个索引是1,依此类推。
+	
+	List支持哪些数据类型？ 
+	字符串Str 整数Int  浮点Float 布尔Bool  列表List  元组Tuple 字典Dict
+
+	支持 增、删、改、查
+	
+	为什么要学list  - 
+	比如：做数据可视化的时候  pyecharts的数据源为 list列表 格式  
+	将原始数据清洗为list，作为可用数据.
+	</列表>
+	
+	<元祖>
+	元组tuple像是一个列表list,但是,它内部的值不可被修改。元组是一个有序的、不可变数据结 构/类型
+	
+	*列表和元组对比			list	VS	tuple
+			声明			[ ]			( )
+			索引			YES			YES
+			切片			YES			YES
+			追加元素		YES			NO
+			修改元素		YES			NO
+			删除元素		YES			NO
+			基于值反查索引	YES			YES
+			包含关系查询	YES			YES
+	
+	元祖支持哪些数据类型？  
+	字符串Str 整数Int  浮点Float 布尔Bool  列表List  元组Tuple 字典Dict	
+
+	支持 增（部分）、删（部分）、改（完全不支持）、查  : P22
+	
+	为什么需要元祖？ 
+	元组tuple 对于大型数据处理速度优于列表list ,如果你有一个常量集需要经常 遍历（for）,那么元组的效率优于列表
+	元组tuple由于其无法“写入”的特点,放在元组内部的数据自然就有一个“写保护”,类似我们的sd卡、cf卡或者部分U盘
+	特别注意-1：当函数（方法）返回的数据大于一个值时,一般以元组形式返回
+	特别注意-2：由于元组的“写保护”模式,函数可以按照元组内部元素的位置顺序接收元组的数据（这个部分我们会在函数课中详细讲解）
+	</元祖>
+	
+	<字典>
+	一个可以存储具有一系列映射关系的数据结构即为字典表
+
+	字典支持哪些数据类型？  
+	字符串Str 整数Int  浮点Float 布尔Bool  列表List  元组Tuple 字典Dict
+	
+	字典常用用法一：
+	my_dirt = {'姓名': '张三', '年龄':'20', '城市':'贵州'}
+	比如制作学生信息表，账号密码表
+	
+	字典常用用法二：
+	在做数据分析时 pandas () 
+	用于创建DataFrame，会用到字典
+	
+	通过字典dir创建DataFrame
+	import pandas as pd
+	
+	my_dirt = {'姓名': ['张三','李四','王五' ],
+			  '年龄': [20, 20, 20],
+			  '城市': ['贵州','贵州','贵州']}
+
+	df = pd.DataFrame(my_dirt，index = [1,2,3])
+	</字典>
+
+</20220913>
+
+<20220920>
+	<函数>
+		<函数的定义>
+		函数的定义：
+		函数,能够实现一个具体的功能, 是多行代码的整合
+		Python 中函数的应用非常广泛，前面章节中我们已经接触过多个函数，比如 input() 、print()、range()for循环、len() 函数等等，这些都是 Python 的内置函数，可以直接使用。
+		除了可以直接使用的内置函数外，Python 还支持自定义函数，即将一段有规律的、可重复使用的代码定义成函数，从而达到一次编写、多次调用的目的。  
+		
+		len()是获取一个字符串长度是常用的功能，一个程序中就可能用到很多次，如果每次都写这样一段重复的代码，不但费时费力、容易出错，而且交给别人时也很麻烦。
+		所以 Python 提供了一个功能，即允许我们将常用的代码以固定的格式封装（包装）成一个独立的模块，只要知道这个模块的名字就可以重复使用它，这个模块就叫做函数（Function）。
+		比如，在程序中定义了一段代码，这段代码用于实现一个特定的功能。问题来了，如果下次需要实现同样的功能，难道要把前面定义的代码复制一次？如果这样做实在太傻了，这意味着每次当程序需要实现该功能时，都要将前面定义的代码复制一次。正确的做法是，将实现特定功能的代码定义成一个函数，每次当程序需要实现该功能时，只要执行（调用）该函数即可。
+		其实，函数的本质就是一段有特定功能、可以重复使用的代码，这段代码已经被提前编写好了，并且为其起一个“好听”的名字。在后续编写程序过程中，如果需要同样的功能，直接通过起好的名字就可以调用这段代码。
+
+		</函数的定义>	
+				
+		<函数的声明和调用>
+		函数的声明：
+		def myFuntion():  # 函数名 建议遵从小驼峰原则
+			print('Hello Python')
+			result = 1 + 1
+			return result
+
+		函数的调用： 
+		result = myFuntion()
+		print(result)
+		
+		</函数的声明和调用>
+		
+		<函数的说明>
+		函数的说明：（函数的说明书，帮助理解代码） 
+		函数内使用三个单/双引号，可以写说明； 
+		使用help(myFunction)，打印函数的说明。
+		</函数的说明>
+		
+		<函数的参数>
+		函数的参数： 
+		函数的参数 有这么几个概念: 
+			形式参数 参数的名字 （类似变量名）- parameter  
+			实际参数 该参数的具体值(变量的那个值) - argument  
+			位置参数 按照参数位置取值 - positional
+			关键字参数 就是一个标准的变量赋值的过程
+			默认参数 为函数预设的参数值
+			参数组 可变参数和可变关键字-传入结构化数据类型（列表、元组、字典）
+		场景一： 形式参数
+		def myFunction(first_name, last_name):
+			full_name = first_name + last_name
+			print(full_name)
+		myFunction('wei', 'yan')   
+		
+		场景二： 加入实际参数
+		def myFunction(first_name, last_name = 'wang'):
+			full_name = first_name + last_name
+			print(full_name)
+		myFunction('wei', 'yan') 
+
+		场景三： 不定长参数 (*args, **kwargs) 
+		kwargs是keyword argument的缩写，args就是argument。
+		
+		星号的作用:
+		一个星号*的作用是将tuple或者list中的元素进行unpack，分开传入，作为多个参数；
+		两个星号**的作用是把dict类型的数据作为参数传入。
+		
+		
+		*args
+		拥有一星（*）的参数组（可变参数）
+		多实参和单接受（形参）
+		def multiValues (*args):
+			print(args)
+		multiValues(1,2,3)
+		
+		**kwargs
+		拥有两星（**）的参数组（可变关键字参数） “kwargs是keyword argument的缩写,args就是argument"
+		def multiValues (**kwargs):
+			print(kwargs)
+		multiValues(a = 1, b = 2, c =3)  
+		
+		如果可变参数*和可变关键字参数**同时出现，可变参数*在前:
+		在Python中有两种参数，一种叫位置参数（positional argument），一种叫关键词参数（keyword argument），关键词参数只需要用 keyword = somekey 的方法即可传参，而位置参数只能由参数位置决定。这也就决定了位置参数一定要在前面，否则关键词参数数量的变化（比如有些kwargs有默认值因此没有传参或者在后面传参的），都会使得位置无法判断。因此常见的也是*args 在 **kwargs 前面。
+		</函数的参数>
+		
+		<全局变量和局部变量>
+			全局变量： 
+			在当前程序的任何位置都可以被访问的变量叫全局变量
+			
+			局部变量:
+			在函数体内定义的变量叫局部变量，只有在当前函数内才可以被访问，
+			函数体内可以通过Global来定义全局变量
+			
+			如何把全局变量引入函数中使用？ （Global） 		
+			<函数体外部的全局变量>
+				discount_rate = 0.9
+				def priceCalculator(price):
+					global discount_rate
+					price_paid = price * discount_rate
+					return price_paid
+				print(priceCalculator(price=100))
+
+				def priceCalculator_new(price):
+					global discount_rate
+					price_paid = price * discount_rate * 0.9
+					return price_paid
+				print(priceCalculator_new(price=100))
+			</函数体外部的全局变量>
+			
+			<函数体内部的全局变量>
+				def priceCalculator(price):
+					global discount_rate  # 对比加这一句和不加这语句的区别
+					discount_rate = 0.9
+					price_paid = price * discount_rate
+					return price_paid
+				print(priceCalculator(100))
+				
+				def priceCalculator_new(price):
+					global discount_rate
+					price_paid = price * discount_rate * 0.9
+					return price_paid
+				print(priceCalculator_new(100))				
+			</函数体内部的全局变量>
+			
+			<函数体内的全局变量对函数体外全局变量的影响>
+				discount_rate = 0.9
+				def priceCalculator(price):
+					global discount_rate
+					discount_rate = 0.8
+					price_paid = price * discount_rate
+					return price_paid
+				print(priceCalculator(price=100))
+
+				def priceCalculator_new(price):
+					global discount_rate
+					price_paid = price * discount_rate * 0.9
+					return price_paid
+				print(priceCalculator_new(price=100))			
+			</函数体内的全局变量对函数体外全局变量的影响>		
+					
+		</全局变量和局部变量>
+		
+		<可变、不可变变量>
+		函数传入不同类型对象（传入后一般对象都会经过加工）
+			传入不可变对象：加工后原来的对象不变。相同数据占用一块内存    
+			传入可变对象，比如list：加工后改变原来的对象。未生成新对象，再次使用被影响后的对象，要特别注意已经发送变化
+		例子：
+			def change(num):
+				num = 1000
+				return num
+
+			num1 = 123
+			new = change(num = num1)
+
+			print(num1)  # 123
+			print(id(num1)) # 2951124113584
+			print(new)  # 1000
+			print(id(new)) # 2951175780240
+
+
+			def change(num):
+				num[0] = 100
+				return num
+			num1 = [1,2,3]
+			new = change(num = num1)
+			print(num1)  # [100, 2, 3]
+			print(id(num1)) # 2951175877824
+			print(new)  # [100, 2, 3]
+			print(id(new)) # 2951175877824			
+		</可变、不可变变量>
+	
+	</函数>
+	
+	<匿名函数>
+		<什么是匿名函数lambda>
+		lambda是个匿名函数，也是一个表达式。
+		匿名函数顾名思义，就是“无名”函数
+		匿名函数适用于简单的业务逻辑
+		‘一行一个函数’  ： 最显著的特征
+		通俗易懂的说
+		逻辑不复杂，不需要大规模批量调用的功能 可使用匿名函数构建，匿名函数的书写特性决定其简易性
+		</什么是匿名函数lambda>
+		
+		<匿名函数示例>
+		def add(x):
+			return x * 2
+		add(2)
+
+		result = lambda x : x * 2
+		result(2)
+		
+		def add(x ,y):
+			return x + y
+			
+		result = lambda x, y: x + y	
+		</匿名函数示例>
+		
+		<匿名函数与三目运算>  if逻辑 ： 三目运算     
+		三目运算： 变量 = 表达式1 if 判断条件 else 表达式2
+		a = 5
+		b = 4
+		if a > b: 
+			print('a大于b')
+		else:
+			print('a小于b')
+		
+		result = 'a 大于 b' if a > b else 'a 小于 b'
+		
+		匿名函数组合三目运算： 
+		def compare(x, y): 
+			if x > y:
+				return x
+			else: 
+				return y
+		
+		compare = lambda x,y : x if x > y else y	
+		使用三目运算的部分： x if x > y else y
+		
+		</匿名函数与三目运算>
+		
+		<匿名函数的几种使用方式>
+		1. 把lambda作为一个方法传入传统函数
+		
+		2. 给def函数中的lambda传参数
+		
+		3. 把lambda作为一个方法传入传统函数 （常见）
+		</匿名函数的几种使用方式>
+		
+		<lambda常用的四个函数>
+		map	filter	reduce sorted
+		</lambda常用的四个函数>
+		
+	</匿名函数>
+
+	<装饰器>
+		<闭包>
+			闭包的定义
+			# 通俗来讲： 
+			# 闭包：对于一个嵌套定义的函数（函数中定义函数），
+			# 外部函数的返回值是内部函数，而在内部函数中又引用了外部函数的局部变量；
+			# 在外部函数执行结束后，这些局部变量不会消失，会与被返回的内部函数一同存在，此时，内部函数被称为闭包(closure)。
+			例子1
+				def outer_f(a): #(外部函数)
+					b = 3 # 局部变量
+					def inner_f(c): #内部函数（闭包函数） 终究还是函数体的一部分
+						return a + b + c  # b=3 , 但是  a和c 需要赋值
+					return inner_f # 外部函数返回内部函数名
+
+				my_f = outer_f(2)  # 只赋值了a = 2， 返回的是inner_f,  my_f 是内部函数
+				# my_f = outer_f(2, 4)  # 错误
+
+				print(my_f)  #  function outer_f.locals.inner_f at 0x000002AF1FD0C3A0  缺少c 的值
+				print(my_f(4))   # my_f(4) 调用内部函数， 内部函数有个参数c  将 c = 4 ,此时  a = 2 , b =3   a + b + c = 9  
+				print(my_f(5))
+				print(my_f(6))			
+			
+			例子2
+			def outer_f(x): #(外部函数)
+				print('我是外部函数')
+				def inner_f(y): #内部函数（闭包函数）
+					print('我是内部函数')
+					return x + y
+				return inner_f
+
+			my_f = outer_f(2)
+
+			print(my_f(5))		
+			
+		</闭包>
+		
+		<装饰器和闭包的关系>		闭包外部传入的是具有具体值的参数，如果是传入的是一个函数对象了？那就完成了一个简单的装饰器。
+		</装饰器和闭包的关系>
+			
+		<为什么需要装饰器>
+		python装饰器就是用于拓展原来函数功能的一种函数，这个函数的特殊之处在于它的返回值也是一个函数，
+		使用python装饰器的好处就是在不用更改原函数的代码前提下给函数增加新的功能。
+		也不会改变调用函数的方法；
+		
+		</为什么需要装饰器>
+		
+		<装饰器如何实现>
+		“@”语法糖
+		
+			def decorator(func):
+				def wrapper(*args, **kwargs):
+					print('Program start!')
+					func(*args, **kwargs)
+				return wrapper
+
+
+			@decorator
+			def func1():
+				print('Run func1!')
+
+
+			@decorator
+			def func2():
+				print('Run func2')
+
+
+			func1()		
+		
+		</装饰器如何实现>
+		
+		<多个装饰器，注意代码的执行顺序>
+			# decorator1(decorator2(func1))
+			# decorator2外部代码->
+			# decorator1外部代码->
+			# decorator1内部代码->
+			# decorator2内部代码	
+			
+				def decorator1(func):
+					def wrapper1(*args, **kwargs):
+						print('Program1 start!')
+						func(*args, **kwargs)
+						print('Program1 end!')
+
+					return wrapper1
+
+
+				def decorator2(func):
+					def wrapper2(*args, **kwargs):
+						print('Program2 start!')
+						func(*args, **kwargs)
+						print('Program2 end!')
+					return wrapper2
+
+
+				@decorator1
+				@decorator2
+				def func1():
+					print('Run func1!')
+
+
+				if __name__ == '__main__':
+					func1()
+		</多个装饰器，注意代码的执行顺序>
+		<Python内置装饰器>
+			@classmethod  @staticmethod   
+		</Python内置装饰器>
+	</装饰器>
+</20220920>
+
+<20220927>
+	<库函数>
+		<库函数的概念>
+		库、 包、 模块 、 方法/函数 
+		1. 包： 		是一个“文件夹” 里边必须要有一个  __init__.py
+		2. 模块： 		是一个xxx.py文件
+		3. 方法/函数： 具体实现功能的函数/类
+		以pyecharts为例：  
+		1. pyecharts/charts/basic_charts: 包  
+		2. bar.py: 模块
+		3. class Bar(RectChart):
+			  def add_yaxis()   : 函数/类
+				
+		</库函数的概念>
+		
+		<标准库和第三方库>
+		1. python的标准库是随着python安装的时候默认自带的库，不需要下载安装的库。
+		目录：  \Lib\
+		常见Python标准库
+		datetime:处理时间和日期的库，提供了日期获取和格式化等方法。
+		random: 随机数生成库，提供了随机数生成的方法。
+		math: 数据函数库，提供了基础的数学运算。
+		sys: 系统命令库，提供包括sys.argv、sys.path、sys.modules等操作方法。
+		os: 操作系统库，提供了系统操作关联函数。
+		
+		2. Python第三方库，目录 \Lib\site-packages		（Pandas/ Pyecharts）
+		python的第三方库，需要安装。
+		Python标准库和第三方库调用方式是一样的，都需要用import语句调用。
+		
+		</标准库和第三方库>
+		
+		<库的管理>  安装一个新的第三方库的步骤
+		安装一个库 
+			1. pip安装： https://blog.csdn.net/m0_62199749/article/details/121983517   # pip为安装库的工具
+			2. pip install pandas==1.4.2  
+			pip install pyecharts(库名)
+			3. 使用国内源安装：
+				（1）临时更换
+					在安装的时候带上参数 -i 国内源地址
+					例如清华源: pip install pytest -i https://pypi.tuna.tsinghua.edu.cn/simple/
+				（2）永久更换(后续安装的时候不用再带参数)
+					在C:\Users\用户 下面创建文件夹，命名为pip, 再在pip文件夹下面创建pip.ini文件, 文件内容如下:
+					[global]
+					index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+					[install]
+					trusted-host = pypi.tuna.tsinghua.edu.cn
+		
+		查看库是否安装成功
+			查看所有已安装库函数和版本： pip list
+			查看Pandas的版本： 
+				import pandas
+				pandas.__version__
+		
+		查看库函数的位置 
+			查看Python安装位置： where python
+			查看库函数安装位置： 
+				import pandas
+				pandas.__path__
+		
+		卸载一个库
+			pip uninstall pandas
+		
+		升级一个库
+			pip install --upgrade pandas==x.x.x
+		</库的管理>
+		
+		<库的使用>  安装成功一个库，我们接下来，使用这个库 ， 首先我们来导入这个库    
+			直接导入	import pandas 
+			跳跃式		from pandas import isna 这种导入方法，在使用时不需要带类名，只能使用“方法列表”中列出的方法和函数。
+			贪婪式		from pandas import *  这种导入方法，在使用时不需要带类名，可以使用该库中所有的方法和函数。
+			自定义名称	import pandas as pd  使用自定义	，缩写，方便使用  		
+		</库的使用>
+		
+		<文件__init__.py>
+		作用：
+		将文件夹变为一个Python包，带有__init__.py文件的目录被认为是Python的包目录，与目录的图标有不一样的显示，其图标是一个包
+		Python文件都是按照目录当作不同的模块来组织的，这个目录被认为是Python包目录，Python会通过搜索该目录下的文件来导入相关的模块。但是并不是所有的目录都会被搜索添加，只有当目录中包含__init__.py文件时，这个目录才会被Python当作是一个包目录，进而搜索添加里面的文件。这样做可以让编程者自己控制哪些目录可以被Python导入成包。		在较低的版本中（如3.2及以下），没有__init__.py文件的目录不能使用importxx.xx导入相关模块，但是后面的版本可以。
+		
+		用法： 
+		通常__init__.py 文件为空，但是我们还可以为它增加其他的功能。我们在导入一个包时，实际上是导入了它的__init__.py文件。这样我们可以在__init__.py文件中批量导入我们所需要的模块，而不再需要一个一个的导入
+		比如pyecharts包中，__init__.py的应用
+		
+		init.py中还有一个重要的变量：** all **, 它用来将模块全部导入。
+		# __init__.py
+		__all__ = ['os', 'sys', 're', 'urllib']    
+
+		# a.py
+		from package import *	
+		这时就会把注册在__init__.py文件中__all__列表中的模块和包导入到当前文件中来。
+		
+		</文件__init__.py>
+		
+		<自定义库>
+			1. 模块的使用
+			2. 包的使用
+		</自定义库>	
+		
+	</库函数>
+	
+	<文件操作>
+	主要应用方向：  办公自动化  
+	
+		1. 文件的路径（绝对路径&相对路径）
+			f = open('1.txt', 'r', encoding='utf-8')
+			f = open(r'..\2.txt', 'r', encoding='utf-8')
+			f = open(r'..\tmp\3.txt', 'r', encoding='utf-8')
+		2. 对文件和文件夹的操作： 
+			import os 查、改
+			import shutil 复制、剪切
+			import zipfile 打包、压缩					
+		3. 对txt文件内容的操作： 			 
+			open 打开文件 
+			read、readline读取文件
+			write 写文件
+		4. 对excel文件内容的操作：  主要借助 第三方库  
+			xlrd、xlwt、xlutils 
+			xlwings 
+			XlsxWriter 
+			openpyxl 
+			pandas 			
+		5. Pandas支持哪些文件内容的操作   CSV，text files，JSON，HTML，XML，Excel files等
+	</文件操作>
+</20220927>
+
+<20221011>
+	<面向对象>
+		<概念>
+			1. 解释型VS编译型	（编程语言的分类 ）
+			2. 面向过程VS面向对象  （编程思路的分类）
+			面向过程（Procedure Oriented 简称PO）：把事情拆分成几个步骤（相当于拆分成一个个的方法和数据），然后按照一定的顺序执行。
+			面向对象（Object Oriented 简称OO）：面向对象会把事物抽象成对象的概念，先抽象出对象，然后给对象赋一些属性和方法，然后让每个对象去执行自己的方法。
+			3. SWOT		
+		</概念>
+		
+		<函数和对象>
+			函数 def + 小驼峰 -具象- 加、减、乘、除函数 （单一的组织具体的代码） 
+			对象 Class + 大驼峰 -抽象- 计算器 （对事物/形态进行组织）
+		</函数和对象>
+	
+		<类和对象>
+		
+			<类的组成>
+			Class 类名：
+					属性: 变量
+					方法：函数
+			</类的组成>
+			
+			<伪代码示例>
+			伪代码一: 计算器为例 ： 
+			class JSQ(object):   ## 就是类 就是计算器
+				函数1/方法： 加法  # 之前学的函数
+				函数2/方法： 减法  # 之前学的函数
+			
+					
+			伪代码2： 
+			class QueryDB(): # 定义类
+				QuerySPARK： 查询Spark数据库  # 定义查询Spark数据库方法
+				QueryGbase： 查询GBase数据库  # 定义查询Gbase数据库方法
+				QuerySqlite： 查询Sqlite数据库  # 定义查询Sqlite数据库方法
+				QueryMySQL： 
+				QuerySQLServer： 
+				
+			QD = QueryDB() # 通过类（QueryDB） 创建对象（QD） 
+			QD.QuerySPARK -> 查询Spark数据库			
+			</伪代码示例>	
+			
+			<案例一>
+			# 理解类和对象
+				class Dog(object):
+					name = '大黄'
+					age = 3
+					def play(self):  # 在类中定义的函数,称为方法, 函数的所有知识都可以使用。暂时不管self
+						print('小狗快乐的拆家中......')
+						
+				# 创建对象 变量 = 类名()
+				dog1 = Dog()  # 创建第一个对象 dog1
+				print(id(dog1))
+
+				dog2 = Dog()  # 创建第二个对象 dog2
+				print(id(dog2))
+
+				# 可以使用对象调用类中的方法.  对象.方法名()
+				print(dog1.name)
+				dog1.play()
+				dog2.play()				
+			</案例一>
+			
+			<案例二>
+				class Dog(object):
+					def __init__(self, name, age):
+						self.name = name
+						self.age = age
+					
+					def __str__(self): 
+						return f'我家小狗的名字叫{self.name}, 他今年{self.age}岁了'
+					
+					def play(self):
+						print('小狗快乐的拆家中.....')
+
+					def eat(self, food):
+						print(f'小狗正在吃{food}')
+
+				dog = Dog('大黄', 3)
+				print(dog)
+				dog.name
+
+				dog.play()
+				dog.eat('狗粮')						
+			</案例二>
+
+			<重点知识点>
+			
+				<self> 
+				Python的类方法/函数和普通的函数有一个明显的区别，在类的方法/函数必须有一个额外的第一个参数（self），
+				从变量的角度来说： 变量加了self（self.name = name），这个变量就变成了全局变量，在类中的其他函数中也可以调用。
+				从类的角度来说： 类内部通过self操作属性：
+					在Python的类方法中这个特别的参数指代是对象本身
+					self 就是一个形参的名字，可以写成其他名字的形参，一般不修改这个名字，默认为self
+					self 作为类中方法的第一个形参,在通过对象调用方法的时候,不需要手动的传递实参值。
+				</self>
+				
+				<魔法方法>
+				魔法方法：方法/函数名以两个下划线开头并以两个下划线结尾的方法，因此也叫Dunder Methods (Double Underscores)。
+				常用于运算符重载。魔法方法会在对类的某个操作时后端自动调用，而不需要自己直接调用。
+				def __init__() ： 
+					调用时机: 在创建对象之后,会立即调用.
+					作用:
+					(1) 用来给对象添加属性,给对象属性多个初始值(构造函数)
+					(2) 代码的业务需求,每创建一个对象,都需要执行的代码可以写在 `__init__ `中
+					注意点: 如果 `__init__` 方法中,有出了 self 之外的形参, 那么在创建的对象的时候,需要给额外的形参传递实参值：  类名(实参)
+					
+				def __str__() : 
+					当使用print输出对象的时候，只要自己定义了__str__(self)方法，那么就会打印从在这个方法中return的数据, 
+					__str__方法需要返回一个字符串，当做这个对象的描述
+				</魔法方法>
+				
+				<类对象、类属性、实例对象、实例属性>
+					类(类对象): 通过class定义的,又称为 类对象, 是python解释器在创建类的时候自动创建的
+					作用: 1. 通过类对象,去定义实例对象   2. 类对象可以保存一些属性信息,称为类属性
+					类属性的定义: 在类内部,方法（函数）外部定义的变量就是类属性
+					类属性,在内存中只有一份
+					
+					对象(实例对象): 通过class定义的类创建的, 即通过类实例化来的, 又称为实例, 实例对象
+					实例对象定义的属性称为是 实例属性. 通过实例对象(self) 定义的属性都是实例属性
+					实例属性: 每个实例对象中都存在一份,并且值可能是不一样的
+					
+					如何区分类属性和实例属性： 
+						先假设这个属性为实例属性,查看这个属性值对于不同的实例对象, 属性值是否都一样,并且会同时变化.
+						如果是, 则可以定义为类属性
+						如果不是,则可以定义为实例属性  
+					eg:
+						class Dog(object):
+							class_name = '小狗类' # 定义类属性
+							def __init__(self, name, age):								
+								self.name = name # 定义的都是实例属性
+								self.age = age
+				</类对象、类属性、实例对象、实例属性> 
+				
+				<实例方法、类方法、静态方法>
+					实例方法: 默认定义的方法,就是实例方法, 第一个参数为self,表示实例对象，需要实例对象去调用（如果在方法中使用了实例属性, 那么该方法必须定义为实例方法）
+					类方法： 不需要使用实例属性. 需要使用类属性,可以将这个方法定义为类方法， 可以通过类直接去调用
+					静态方法: 不需要使用实例属性,也不需要使用类属性，可以将这个方法定义为类方法，使用 @staticmethod 装饰的方法,称为静态方法, 对参数没有特殊要求,可以有,可以没有
+					<类方法>
+					类方法的定义： 使用 @classmethod 装饰的方法,称为类方法, 第一个参数是cls,代表的是类对象自己
+					eg: 
+						class Dog(object):
+							class_name = '狗类' # 类属性
+
+							def __init__(self, name, age): # 实例方法：__init__魔法方法
+								self.name = name  # 实例属性
+								self.age = age	# 实例属性
+
+							def play(self):  # 实例方法
+								print(f"小狗{self.name} 在快乐的玩耍....")  
+							
+							def get_class_name(self):  # 是实例方法, 因为没有使用实例属性,所以可以定义为类方法
+								return Dog.class_name 
+							
+							# 类方法定义
+							@classmethod  # 装饰器
+							def get_class_name(cls):  # cls 是类方法的默认形参,在调用的时候,不需要手动传递,python解释器会自动传递
+								return cls.class_name
+
+						dog = Dog('大黄', 2)  # 创建对象 
+						dog.play() # 对象.实例方法()
+						print(dog.get_class_name())  # dog 对象.类方法() 
+						print(Dog.get_class_name())   #  Dog 类名.类方法()  
+					</类方法>	
+					
+					<静态方法>
+					静态方法的定义： 使用 @staticmethod 装饰的方法,称为静态方法, 对参数没有特殊要求,可以有,可以没有  
+					eg: 
+						class Dog(object):
+							class_name = '狗类'
+
+							def __init__(self, name, age):
+								self.name = name
+								self.age = age
+
+							def play(self):  # 实例方法
+								print(f"小狗{self.name} 在快乐的玩耍....")
+
+							@staticmethod  # 定义静态方法 装饰器
+							def show_info():
+								print('这是一个Dog类')	# 没有实例属性,也没有类属性
+
+						dog = Dog('大黄', 2)
+						dog.play()
+						dog.show_info()	# 对象.方法名()						
+						Dog.show_info()	# 类名.方法名()
+					
+					</静态方法>
+				</实例方法、类方法、静态方法>									
+			</重点知识点>
+			
+		</类和对象>
+		
+		<类的三大特性>
+			<继承Inherit>
+				<继承的基本语法>
+					继承: 描述的类与类之间所属关系.
+					基本语法:
+					class 类B(类A):
+					  pass
+					称为类 B 继承类 A
+					特点: B类的对象可以使用 A类的属性和⽅法
+					优点: 代码复用.重复相同的代码不用多次书写.
+					名词:
+					类A: 父类 基类
+					类B: 子类 派生类  
+					eg： 
+						# 1. 定义是个 动物类 animal类
+						class Animal(object):
+							# 2. 在animal类书写 play方法,输出快乐的玩耍....
+							def play(self):
+								print('快乐的玩耍....')
+
+						# 3. 定义Dog类继承animal类,
+						class Dog(Animal):
+							pass
+
+
+						# 4. 创建dog类对象.调用父类的方法
+						dog = Dog()
+						dog.play()
+				</继承的基本语法>
+				
+				<继承的分类： 单层继承和多层继承>
+					<单继承>
+					1. 单继承: 如果一个类只有一个父类,把这种继承关系称为单继承
+					同上
+					</单继承>
+					
+					<多继承>
+					2. 多继承: 如果一个类有多个父类,把这种继承关系称为多继承
+						2.1 多个父类中有相同的方法，默认调用第一个父类中的方法
+						2.2 在子类中，可以重写父类的方法，或者指定父类的方法，这样‘默认调用第一个父类中的方法’原则失效
+					eg ：
+					class Dog(object):
+					class God(object):
+					class XTQ(Dog1, Dog2): 
+					</多继承>
+
+					<多层继承>
+					3. 多层继承: C--> B --> A
+					eg: 
+						# 1. 定义是个 动物类 animal类
+						class Animal(object):  # 对于Animal类和object类来说,单继承
+							# 2. 在animal类书写 play方法,输出快乐的玩耍....
+							def play(self):
+								print('快乐的玩耍....')
+
+						# 3. 定义Dog类继承animal类,
+						class Dog(Animal):  # Dog --> Animal 也是单继承, Dog --> Animal --> object 这种继承关系称为多层继承
+							def bark(self):
+								print('汪汪汪叫.......')
+
+						# 定义类 XTQ类, 继承 Dog类
+						# 多层继承中,子类可以使用所有继承链中的类中的方法和属性
+						class XTQ(Dog):  # XTQ --> Dog 单继承, XTQ --> Dog --> Animal 类, 多层继承
+							pass
+
+						xtq = XTQ()
+						xtq.bark()  # 调用父类Dog中的方法
+						xtq.play()  # 调用爷爷类 animal类中的方法	
+					</多层继承>					
+				</继承的分类： 单层继承和多层继承>
+				
+				<一些使用场景>
+					eg: 
+						# 1. 定义Dog类, 书写bark方法, 输出 汪汪汪叫
+						class Dog(object):
+							def bark(self):
+								print('汪汪汪叫.........')
+
+						# 2. 定义XTQ类,继承Dog类. 重写父类中的bark方法, 输出 嗷嗷嗷叫
+						class XTQ(Dog):
+							def bark(self):
+								print('嗷嗷嗷叫--------')
+								
+					1. 方法（def函数）在子类中重写，子类直接调用子类方案
+						重写: 子类定义和父类名字相同的方法（def函数）.
+						为什么重写: 父类中的方法,不能满足子类对象的需求,所以要重写.
+						重写之后的特点: 子类对象调用子类自己的方法,不再调用的方法,父类对象调用父类自己的方法
+					2. 方法（def函数）在子类中重写，但是子类还是调用父类方法
+						2.1 方法一: 父类名.方法名(self, 其他参数), 通过实例对象.方法名() 调用方法,不需要给self传递实参值,
+						python解释器会自动将对象作为实参值传递给self形参, 如果是通过类名.方法() 调用,python解释器就
+						不会自动传递实参值,需要手动给self形参传递实参值
+						Dog.bark(self)
+
+						2.2 方法二  super(类A, self).方法名(参数) , 会调用当类A 的父类中的方法
+						super(XTQ, self).bark()  # 调用 XTQ类父类中的bark方法
+
+						2.3 方法三  是方法二的简写, super().方法名(参数) ==> super(当前类, self).方法名()
+						super().bark()
+					3. 继承中的init, 子类重写了父类的__init__ 方法,默认不再调用父类的init方法, 需要手动的调用父类的init方法
+						
+				</一些使用场景>
+				
+			</继承Inherit>
+			
+			<封装Encapsulation>
+				<封装的基本概念>			属性和方法的抽象。隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读和修改的访问级别；将抽象得到的数据和行为（或功能）相结合，形成一个有机的整体。
+				把一个/多个功能放在一个命令/函数/类中，可以被使用人直接调用。
+				封装的目的主要增加了安全性和简化代码。
+				
+				在程序设计中，封装（Encapsulation）是对具体对象的一种抽象，即将某些部分隐藏起来，在程序外部看不到，其含义是其他程序无法调用。
+				想要了解封装，就离不开“私有化”。也就是类的属性或者函数限制到限制在类中使用，而外部无法调用。
+				将类中的属性或方法私有化，私有化的属性和方法只能在类的内部被调用
+				</封装的基本概念>
+				
+				<私有权限>
+					访问权限控制: 在什么地方可以使用和操作.
+					私有权限:
+					定义: 在方法和属性前加上两个下划线, 就变为私有.
+					1. 不能在类外部通过对象直接访问和使用, 只能在类内部访问和使用
+					2. 不能被子类继承,
+					公有: 不是私有的,就是公有的.  
+				</私有权限>
+				
+				<私有属性、方法>
+				在C++/JAVA:  
+					public：公有属性的类变量和类函数，在类的外部、类内部以及子类（后续讲继承特性时会做详细介绍）中，都可以正常访问；
+					private：私有属性的类变量和类函数，只能在本类内部使用，类的外部以及子类都无法使用。
+				在Python： 
+				Python并没有提供 public、private 这些修饰符。为了实现类的封装，Python 采取了下面的方法：
+				默认情况下，Python 类中的变量和方法都是公有（public）的，它们的名称前都没有下划线（_）；
+				如果类中的变量和函数，其名称以双下划线“__”开头，则该变量（函数）为私有变量（私有函数），其属性等同于 private。			
+				</私有属性、方法>
+				
+				<案例>
+					class Dog(object):
+						def __init__(self, name, age):  # 实例方法：__init__魔法方法
+							self.__name = name  # 私有实例属性
+							self.age = age  # 共有实例属性
+
+						# 定义bark方法，公有方法
+						def bark(self):
+							print(f"小狗{self.__name} 汪汪汪叫...") # 在类内部，私有属性可以调用
+
+						# 定义__play方法，私有方法
+						def __play(self):  # 实例方法
+							print(f"小狗{self.__name} 在快乐的玩耍....")
+
+					dog = Dog('大黄', 3)
+
+					print(dog.age)  # 公有属性，可以直接被对象调用
+					# print(dog.__name)   # 报错，私有属性，不可以被对象调用
+					# 那么怎么才能调用呢？
+					print(dog.__dict__) # 通过obj.__dict__查看类对象的字段属性，发现我们定义的封装字段前面都加了_类名
+					# _类名+方法调用
+					print(dog._Dog__name)   # Python封装，并不是真正意义上的外部无法调用，如果想调用封装的字段或方法，需要在字段或者方法前加上_类名
+
+					dog.bark()  # 调用共有方法
+					# dog.__play()  # 错误， 私有方法无法被调用
+					print(dir(Dog)) # dir() 函数查看对象属性和方法
+					dog._Dog__play()
+				</案例>
+				
+				
+				
+			</封装Encapsulation>
+						
+			<多态Polymorphism>
+			多态首先是建立在继承的基础上的，先有继承才能有多态。
+			多态是指不同的子类在继承父类后分别都重写覆盖了父类的方法，即父类同一个方法，在继承的子类中表现出不同的形式。
+			多个子类同属一个父类，但是子类重写了父类的方法，并在这个方法上表现出不能的形态，这就是多态。
+			
+			实现步骤:
+			1. 子类继承父类
+			2. 子类重写父类中的同名方法
+			3. 定义一个共同的方法, 参数为父类对象.在方法中调用子类和父类同名的方法 
+			eg: 
+				# 1. 定义父类Animal
+				class Animal(object):
+					def __init__(self, name):
+						self.name = name
+
+				# 2. 定义子类Dog
+				class Dog(Animal):
+					def play(self):
+						print(f'小狗{self.name} 在玩皮球...')
+
+				# 3. 定义子类Cat
+				class Cat(Animal):
+					def play(self):
+						print(f'小猫{self.name} 在抓蝴蝶...')
+
+				# 4. 定义一个共同的方法
+				def play_with_animal(obj_dog):
+					obj_dog.play()
+
+				# 创建一个Dog类对象
+				dog = Dog('大黄')
+				play_with_animal(dog)
+
+				# 创建一个Cat类的对象
+				cat = Cat('小黑')
+				play_with_animal(cat)
+		
+		</多态Polymorphism>
+		
+	</面向对象>
+</20221011>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
