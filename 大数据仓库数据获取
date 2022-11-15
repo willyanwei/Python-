@@ -1,0 +1,224 @@
+
+
+<大数据历史>
+	Google三篇论文： 
+	GFS： 			分布式文件存储
+	BigTable: 		面向列的分布式数据库
+	MapReduce： 	分布式离线计算
+
+
+	第一代大数据技术：  Hadoop
+	HDFS：		分布式文件系统   - GFS	        -  	BigTable ——>  HBase	面向列的分布式数据库	
+	MapReduce： 分布式离线计算（基于JAVA语言）   - HiveSQL （通过SQL语句实现mapreduce计算）  
+	YARN： 		资源管理
+
+	第二代大数据： 
+	Spark core： 基于内存计算  - MapReduce
+	Spark streaming：  实时（流式）计算， 计算速度秒级别，不及同时期的strom（毫秒， 只支持实时数据计算）  
+	SparkSQL： 交互式查询   - HSQL
+	MLLIB： 机器学习
+	graphX; 图计算
+
+	第三代大数据： 
+	Flink  - 全能选手， 出发点也是 实时（流式）计算， 提高了计算速度， 并且支持历史数据查询、交互式数据查询（FlinkSQL）
+
+</大数据历史>
+
+
+<大数据数据仓库>
+	如何部署大数据集群？ 
+	Ambari+HDP
+	可以通过服务器组件集群，比较昂贵
+	可以购买工控机，比较廉价
+	可以VBOX VMWARE虚拟出多台服务器
+
+	大数据的存储：
+	文件存储： 
+	HDFS：   分布式文件系统； 关键技术（数据切块128M、3副本机制）； 
+	缺陷： 不适合随机读取
+
+	数据库存储：
+	HBase:   面向列的数据库，搭建在hdfs文件系统之上， 基于MapReduce计算实现随机查询；  
+	缺陷：  虽然实现了数据库存储，但不支持标准的SQL语句查询
+
+		* 大数据的计算： 
+			MapReduce： 强依赖JAVA，门槛高  ->  HiveSQL工具，提供了SQL语句，通过SQL语句实现mapreduce计算，不需要我们去学JAVA
+
+	数据仓库：
+	HBase和Hive整合，形成大数据仓库 
+	取HBase的存储能力+ Hive的SQL能力， 实现SQL语句查询hbase数据
+	但是他们的核心还是mapreduce， 为了提升计算能力，一般将Spark一起整合
+
+
+	如何访问数据仓库？
+	1、 linux shell: 
+	$ hive
+	0: jdbc:hive2://server192:2181,server193:2181>
+
+	2、 数据库客户端dbeaver
+	IP/PORT/USERNAME/PASSWORD
+
+	3、 python
+	pyhive/impala
+
+	<对接mysql>
+			import pymysql
+			import pandas as pd
+			from sqlalchemy import create_engine
+
+			class PyMysql(object):
+				'''
+				使用mysql进行数据的输入输出
+				'''
+				def __int__(self):
+					pass
+
+				def mysql2csv(self, DSN, sql):
+					conn = pymysql.connect(
+						host=DSN["host"],
+						port=DSN["port"],
+						database=DSN["database"],
+						user=DSN["user"],
+						password=DSN["password"])
+					cursor = conn.cursor()
+					# 去掉sql结尾的；号，不然会报错
+					cursor.execute(sql.rstrip("").rstrip("\n").rstrip("").rstrip(";"))
+					data = list(cursor.fetchall())
+
+					# 列名
+					col_name_list = [tuple[0] for tuple in cursor.description]
+					df = pd.DataFrame(data, columns=col_name_list)
+					conn.commit()
+					cursor.close()
+					conn.close()
+					print('导出成功')
+					return df
+
+				def csv2mysql(self, DSN, table_name, path, sheetname):
+					# 数据库连接信息
+					host = DSN["host"],
+					port = DSN["port"],
+					database = DSN["database"],
+					user = DSN["user"],
+					password = DSN["password"]
+
+					data = pd.read_excel(path, sheet_name=sheetname)
+					engine = create_engine("mysql+pymysql://{user}:{password}@{host}:{port}/{database}".format(**DSN),
+										   max_overflow=5)
+					data.to_sql(table_name, engine, index=False, if_exists='replace', )
+					print('导入成功...')
+
+
+			# 数据库连接信息
+			DSN = {
+				"host": "localhost",
+				"port": 3306,
+				"database": "dbmanual",
+				"user": "root",
+				"password": "123456"
+			}
+
+
+			# 数据的导出
+			sql = """show tables;"""
+
+			PM = PyMysql() # 通过类定义对象PM
+			# data1 = PM.Query_Mysql(DSN, sql)
+			# print(data1)
+			#
+			# data1.to_csv('tmp.csv')
+
+			# 表名
+			# 如果不存在表，则自动创建
+			table_name = '数据操作'
+			# 文件路径
+			path = r'D:\数据库\SQL速查手册.xlsx'
+			sheetname = table_name
+
+			PM.csv2mysql(DSN, table_name, path,  sheetname)
+
+	</对接mysql>
+	
+	
+	<对接hive>
+		def Query_Hive(DSN, sql):
+
+			'''
+
+			DSN：数据库连接信息
+
+			sql：需要执行的sql语句
+
+			'''
+
+
+			from pyhive import hive
+			import pandas as pd
+
+			conn = hive.Connection(host = DSN["host"],
+
+						   port = DSN["port"],
+
+						   database = DSN["database"],
+
+						   username = DSN["user"],
+
+						   password = DSN["password"],
+
+						   auth = 'CUSTOM')
+
+			cursor = conn.cursor()
+
+			# 解决查询只有200行问题
+
+			# cursor.execute("set spark.sql.thriftServer.limitCollectNumber = 0")
+
+			# 去掉sql结尾的；号，不然会报错
+
+			cursor.execute(sql.rstrip("").rstrip("\n").rstrip("").rstrip(";"))
+
+			data = list(cursor.fetchall())
+
+			# 列名
+
+			col_name_list = [tuple[0] for tuple in cursor.description] 
+
+			df = pd.DataFrame(data, columns= col_name_list)
+
+			conn.commit()
+
+			cursor.close()
+
+			conn.close()
+
+			return df
+		
+		
+		DSN = {
+
+			"host": "192.168.0.192",
+
+			"port": 10000,
+
+			"database": "default",
+
+			"user": "root",
+
+			"password": "Bigdata_123"
+
+		}
+		
+		
+		sql = """select * from country_vaccinations_table ;"""
+		data1 = Query_Hive(DSN, sql).drop(0)  # drop(0) 删除第一行（表头）
+		
+
+	</对接hive>
+
+</大数据数据仓库>
+
+
+
+
+
+
